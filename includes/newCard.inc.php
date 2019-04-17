@@ -9,67 +9,73 @@ if (isset($_POST['submit'])) {
 
     $user_id = $_SESSION['u_id'];
 
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $content = mysqli_real_escape_string($conn, $_POST['content']);
-    $publishedDate = date('Y/m/d');
+    $card_name = mysqli_real_escape_string($conn, $_POST['card_name']);
+    $card_quote = mysqli_real_escape_string($conn, $_POST['card_quote']);
+    $card_description = mysqli_real_escape_string($conn, $_POST['card_description']);
+ 
 
-    $topic_id_post = mysqli_real_escape_string($conn, $_POST['topics']);
-    $select_topic_id = "SELECT topic_id FROM topics WHERE topic_id = '$topic_id_post'";
-    $topic_id_query = mysqli_query($conn, $select_topic_id);
-    $topic_id = mysqli_fetch_assoc($topic_id_query);
-    $topic_id_string = implode($topic_id);
+
+    //upload file variables
+    $target_dir = "../images/";
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     //Error handlers
     // Check for empty fields
-    if (empty($title) || empty($content)) {
-      header("Location: ../index.php?entry=empty");
+    if (empty($card_name) || empty($card_description)) {
+      header("Location: ../index.php?card=emptyfields");
       exit();
     } else {
       //Check if input characters are valid
-      if (!preg_match("/^[a-zA-Z0-9 ]*$/", $title)) {
+      if (!preg_match("/^[a-zA-Z0-9 ]*$/", $card_name)) {
         header("Location: ../index.php?entryname=invalid");
         exit();
       } else {
         // Check if entry exists
-          $sql = "SELECT * FROM entries WHERE title='$title'";
+          $sql = "SELECT * FROM cards WHERE card_name='$card_name'";
           $result = mysqli_query($conn, $sql);
           $resultCheck = mysqli_num_rows($result);
+          $filename = $_FILES["image"]["name"];
 
           if ($resultCheck > 0) {
             header("Location: ../index.php?entry=entry_exists");
             exit();
             // Insert the entry into the database
             } else {
-
-              $sql = "INSERT INTO entries (title, pub_date, user_id, topic_id, content) VALUES ('$title', '$publishedDate', '$user_id', '$topic_id_string', '$content')";
+              $sql = "INSERT INTO cards (card_name, quote, description, user_id, img) VALUES ('$card_name', '$card_quote', '$card_description', '$user_id', '$filename')";
               mysqli_query($conn, $sql);
 
-              header("Location: ../index.php?newentry=success");
 
+              $check = getimagesize($_FILES["image"]["tmp_name"]);
+              if($check !== false) {
+                  echo "File is an image - " . $check["mime"] . ".";
+                  $uploadOk = 1;
+              } else {
+                  echo "File is not an image.";
+                  $uploadOk = 0;
+              }
+
+              if ($uploadOk == 0) {
+                  echo "Sorry, your file was not uploaded.";
+              // if everything is ok, try to upload file
+              } else {
+                  if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                      echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+                  } else {
+                      echo "Sorry, there was an error uploading your file.";
+                  }
+              }
+              header("Location: ../create_card.php?youdidit");
               exit();
           }
         }
       }
 
 } else {
-    // sends user to the signup page if they access signup file via URL
-    header("Location: ../index.php?somethinghappened");
+    // send user to cardpage and gives errormessage
+    header("Location: ../index.php?somethinghappenedcreation");
     exit();
 }
-
-if (isset($_POST['delete_entry'])) {
-  include_once 'dbh.inc.php';
-
-  $topic_id = $_POST['topics'];
-  // First delete entries in selected topic
-  $sql = "DELETE FROM entries WHERE topic_id='$topic_id'";
-  mysqli_query($conn, $sql);
-
-  // Then delete the selected topic
-  $sql = "DELETE FROM topics WHERE topic_id='$topic_id'";
-  mysqli_query($conn, $sql);
-
-  //Redirect the user to the indexpage with deletedtopic=success
-  header("Location: ../index.php?delete_entry=success");
-}   header("Location: ../index.phpi_see_you_trying_to_access_this_file");
+   header("Location: ../index.php?i_see_you_trying_to_access_this_file");
     exit();

@@ -33,6 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" href="signup.php">Register</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="create_card.php">Cards</a>
+          </li>
         </ul>
       </div>
 
@@ -43,17 +46,6 @@
         <?php
         if (isset($_SESSION['u_id'])) {
           echo '<form class="form-inline my-2 my-lg-0" action="includes/logout.inc.php" method="POST">
-                  <div class="form-group">
-                  <div class="dropdown">
-                    <button class="headerbutton btn btn-info my-2 my-sm-0 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Your profile
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="user.php?selected_topic">Entries and topics</a>
-                      <a class="dropdown-item" href="useredit.php">Settings</a>
-                    </div>
-                  </div>
-                  </div>
                   <div class="form-group">
                     <button class=" headerbutton btn btn-outline-danger my-2 my-sm-0" name="submit">Logout</button>
                   </div>
