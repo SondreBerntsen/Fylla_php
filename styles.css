@@ -1,3 +1,5 @@
+/* Card styling, the form elements queried in create_card.php */
+
 .formwidth {
   width: 60%;
   margin: 0 auto;
@@ -16,4 +18,17 @@
 
 .headerbutton {
   margin-right: 5px;
+}
+
+/* Images */
+
+.cropdiv {
+  width: 100%;
+  height: 213px;
+  overflow: hidden;
+}
+
+.cropmaster {
+  min-height: 100%;
+  min-width: 100%;
 }
