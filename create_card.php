@@ -62,7 +62,7 @@ if (!isset($_SESSION['u_id'])) {
 
         while ($row = mysqli_fetch_array($result)) {
             echo '
-              <div class="col-sm-3">
+              <div class="col-lg">
                 <form action="includes/deleteCard.inc.php" method="POST">
                       <div class="card">
                         <div class="card-body">
@@ -74,8 +74,10 @@ if (!isset($_SESSION['u_id'])) {
                           <p class="card-text">' . $row['description'] . '</p>
                           <input type="hidden" name="card_id_delete" value= ' . $row['card_id'] . '>
                           <p class="card-text"><small class="text-muted">Created by you!</small></p>
-                            <button type="submit" class="btn btn-danger">Delete card</button>
-                        </div>
+                          <button type="submit" class="btn btn-danger">
+                                    Snakkes på lan
+                                  </button>                    
+                          </div>
                       </div>
                 </form>
               </div>';
@@ -94,7 +96,7 @@ if (!isset($_SESSION['u_id'])) {
 
         <?php
         // New card modal trigger button, is only shown if user is logged in
-        if (isset($_SESSION['u_type'])) {
+        if (isset($_SESSION['u_type']) && $_SESSION['u_type'] == 'administrator') {
           echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newCardModal">
                   Create new card
                 </button>';

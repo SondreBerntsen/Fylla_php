@@ -33,8 +33,18 @@
           <li class="nav-item">
             <a class="nav-link" href="signup.php">Register</a>
           </li>
+
+        <?php
+          if (isset($_SESSION['u_type']) && $_SESSION['u_type'] == 'administrator') {
+            echo '<li class="nav-item">
+                    <a class="nav-link" href="create_card.php">Big dick administrator</a>
+                  </li>';
+          }
+        ?>
+
+          
           <li class="nav-item">
-            <a class="nav-link" href="create_card.php">Cards</a>
+            <a class="nav-link" href="cards.php">View cards</a>
           </li>
         </ul>
       </div>
