@@ -21,14 +21,44 @@
 }
 
 /* Images */
-
-.cropdiv {
-  width: 100%;
-  height: 213px;
-  overflow: hidden;
+.img-fluid {
+  padding-top: 22px;
 }
 
-.cropmaster {
-  min-height: 100%;
+/* Card display */
+.fylla-card {
+  max-width: 300px !important;
+}
+
+.card {
+  min-width: 300px;
+  max-width: 400px !important;
+  margin: 0 auto;
+  background-image: url('images/beeru.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.card-body {
+  margin: 0 auto;
+}
+
+.align-self-center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card-title {
+  color: #ffffff;
+  margin-bottom: .75rem;
+  padding-top: 10px;
+}
+
+.titlebanner {
+  background-color: #3e4340;
   min-width: 100%;
+  margin-left: -20px;
+  margin-right: -20px;
+  height: 50px;
+  position: absolute;
 }

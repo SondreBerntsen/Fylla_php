@@ -72,10 +72,3 @@
 
       </form>
     </nav>
-    <?php
-      if (isset($_SESSION['u_id'])) {
-          echo'<p> You are logged in</p>';;
-        } else {
-          echo '<p> You are logged out</p>';
-        }
-    ?>
