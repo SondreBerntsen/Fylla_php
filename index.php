@@ -58,7 +58,6 @@ if (isset($_POST['startgame'])) {
     $result = mysqli_query($conn, $sql);
     $card_id_array = array();
 
-
     while ($row = mysqli_fetch_array($result)) {
         $card_id_array[] = $row['card_id'];
     }
