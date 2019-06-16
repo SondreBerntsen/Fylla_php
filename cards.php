@@ -24,20 +24,22 @@ include_once 'includes/dbh.inc.php';
         $result = mysqli_query($conn, $sql);
 
         while ($row = mysqli_fetch_array($result)) {
-            echo '
-              <div class="col-sm-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="cropdiv">
-                            <img src= "images/' . $row['img'] . '" class="img-fluid cropmaster" alt="Responsive image">
-                          </div>
-                          <h5 class="card-title">' . $row['card_name'] . '</h5>
-                          <p class="card-text">' . $row['quote'] . '</p>
-                          <p class="card-text">' . $row['description'] . '</p>
-                          <input type="hidden" name="card_id_delete" value= ' . $row['card_id'] . '>                  
+            echo '<div class="col-sm-4 align-self-center">
+                      <div class="card fylla-card">
+                          <div class="card-body fylla-card-body">
+                              <div class="titlebanner">
+                                  <h5 class="card-title">' . $row['card_name'] . '</h5>
+                              </div>
+                              <div class="cropdiv">
+                                  <img src= "images/' . $row['img'] . '" class="img-fluid rounded-circle" alt="Responsive image">
+                              </div>
+                              <div class="descriptioncontainer">
+                                  <p class="card-text">' . $row['quote'] . '</p>
+                                  <p class="card-text">' . $row['description'] . '</p>
+                              </div>                
                           </div>
                       </div>
-              </div>';
+                  </div>';
         }
 
       ?>

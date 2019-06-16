@@ -62,23 +62,27 @@ if (!isset($_SESSION['u_id'])) {
 
         while ($row = mysqli_fetch_array($result)) {
             echo '
-              <div class="col-lg">
+            <div class="col-sm-4 align-self-center">
                 <form action="includes/deleteCard.inc.php" method="POST">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="cropdiv">
-                            <img src= "images/' . $row['img'] . '" class="img-fluid cropmaster" alt="Responsive image">
+                <div class="card fylla-card">
+                <div class="card-body fylla-card-body">
+                          <div class="titlebanner">
+                              <h5 class="card-title">' . $row['card_name'] . '</h5>
                           </div>
-                          <h5 class="card-title">' . $row['card_name'] . '</h5>
-                          <p class="card-text">' . $row['quote'] . '</p>
-                          <p class="card-text">' . $row['description'] . '</p>
-                          <input type="hidden" name="card_id_delete" value= ' . $row['card_id'] . '>
-                          <p class="card-text"><small class="text-muted">Created by you!</small></p>
-                          <button type="submit" class="btn btn-danger">
-                                    Snakkes på lan
-                                  </button>                    
+                          <div class="cropdiv">
+                              <img src= "images/' . $row['img'] . '" class="img-fluid rounded-circle" alt="Responsive image">
+                          </div>
+                          <div class="descriptioncontainer">
+                              <p class="card-text">' . $row['quote'] . '</p>
+                              <p class="card-text">' . $row['description'] . '</p>
+                          </div>
+                   
                           </div>
                       </div>
+                  <input type="hidden" name="card_id_delete" value= ' . $row['card_id'] . '>
+                  <button type="submit" class="btn btn-danger">
+                            Delete Card
+                  </button> 
                 </form>
               </div>';
         }

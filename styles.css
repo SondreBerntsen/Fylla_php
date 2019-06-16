@@ -9,9 +9,6 @@
     color: #ff4141;
 }
 
-.list-group-item {
-}
-
 .container {
   margin-top: 20px;
 }
@@ -31,10 +28,12 @@
 }
 
 .card {
+  border-radius: 2%;
   min-width: 300px;
   max-width: 400px !important;
   margin: 0 auto;
-  background-image: url('images/beeru.jpg');
+  margin-top: 20px;
+  background-image: url('images/beer.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -61,4 +60,16 @@
   margin-right: -20px;
   height: 50px;
   position: absolute;
+}
+
+.descriptioncontainer {
+  background-color: #3e4340;
+  min-width: 100%;
+  min-height: 190px;
+  padding: 40px;
+  margin: -15px -20px 0px -20px;
+}
+
+.card-text {
+  color: #FFFFFF;
 }

@@ -21,7 +21,7 @@ $_SESSION["favanimal"] = "cat";
         if (isset($_SESSION['gamestate'])) {
         echo '  <div class="col-sm">
                     <form action="game.php" method="POST">
-                            <butto name="resume" type="submit" class="btn btn-success">
+                            <button name="resume" type="submit" class="btn btn-success">
                             Resume game
                             </button>
                     </form>
