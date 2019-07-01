@@ -37,7 +37,11 @@ if (isset($_POST['resume'])) {
 
 // If user presses next card button
 if (isset($_POST['nextcard'])) {
-
+    if ($_SESSION['currentcard'] == 0) {
+        print_r($_SESSION['deck']);
+        shuffle($_SESSION['deck']);
+        print_r($_SESSION['deck']);
+    }
     if ($_SESSION['currentcard'] != 0) {
         array_push($_SESSION['graveyard'], $_SESSION['currentcard']);
         
