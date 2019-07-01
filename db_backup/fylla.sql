@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2019 at 07:51 PM
+-- Generation Time: Jul 01, 2019 at 02:04 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -42,10 +42,7 @@ CREATE TABLE `cards` (
 --
 
 INSERT INTO `cards` (`card_id`, `card_name`, `quote`, `description`, `img`, `user_id`) VALUES
-(4, 'ronny', 'ronny', 'drekk han ronny', 'well.png', 1),
-(5, 'drekka e drekka', '\"drekk alt\"', 'drekk 1000 slurka', 'wtf.jpg', 1),
-(7, 'drekka ', 'drekk', '10000', 'KQtLBrE.png', 1),
-(8, 'Drekk 100 ting', '\"du mÃ¥ drekke 100 ting', 'du klare aldri Ã¥ spelle ferdig', 'HAHAHAH.jpg', 1);
+(9, 'Test kortet', '\"Det e viktig Ã¥ teste\"', 'HÃ¥pe det her faktisk funke, drekk en mill penga om det funke.', '500x500.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +92,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `card_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `card_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
