@@ -14,45 +14,48 @@ $_SESSION["favanimal"] = "cat";
 
 
 
-<div class="container">
-    <div class="row">
+    <div class="row rownoscroll">
 
         <?php
+        // Resume button
         if (isset($_SESSION['gamestate'])) {
-        echo '  <div class="col-sm">
-                    <form action="game.php" method="POST">
-                            <button name="resume" type="submit" class="btn btn-success">
+        echo '  <div class="col-lg">
+                <div class="jumbotron">
+                    <h1 class="display-4">Resume Game</h1>
+                    <p class="lead">I see you have a game running ;) do you want to resume?</p>
+                    <hr class="my-4">
+                    <form action="game.php" method="GET">
+                            <button name="resume" type="submit" class="btn btn-info">
                             Resume game
                             </button>
                     </form>
+                </div>
                 </div>';
         } 
         ?>
         <!-- Play button -->
-        <div class="col-sm">
-            <form method="POST">
-                    <button name="startgame" class="btn btn-danger">
-                    New game
-                    </button>                    
-            </form>
-        </div>
-
-        <div class="col-sm">
-            <form action="includes/delete_session.inc.php" method="POST">
-                    <button type="submit" class="btn btn-info">
-                    slett heile verdn
-                    </button>                    
-            </form>
+        <div class="col-lg">
+                <div class="jumbotron">
+                    <h1 class="display-4">New Game</h1>
+                    <p class="lead">Start game get drunk</p>
+                    <hr class="my-4">
+                    <form method="GET">
+                            <button name="startgame" type="submit" class="btn btn-success">
+                            New game
+                            </button>
+                    </form>
+                </div>
         </div>
     </div>
 
 <?php
-if (isset($_POST['startgame'])) {
+if (isset($_GET['startgame'])) {
     session_start();
 
     include_once 'includes/dbh.inc.php';
     // Selects all card ids from database and puts them in an array to start the game.
     // Additionally sets session gamestate to user.
+    // Sets game_done session to false.
 
     $sql = "SELECT card_id FROM cards";
     $result = mysqli_query($conn, $sql);
@@ -70,10 +73,6 @@ if (isset($_POST['startgame'])) {
 }
 
 ?>
-
-
-</div>
-
 
 
 

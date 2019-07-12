@@ -15,8 +15,8 @@ $_SESSION["favanimal"] = "cat";
 
 
 <div class="container text-center">
-        <h1>Kongratulaise din taper</h1>
-        <img class="img-fluid" src="images/what.jpg" alt="celebrationtiiime">
+        <h1>Disgusting</h1>
+        <img class="img-fluid" src="images/images_not_cards/weakness_disgusts_me.jpg" alt="celebrationtiiime">
 </div>
 
 
