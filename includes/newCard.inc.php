@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $card_name = mysqli_real_escape_string($conn, $_POST['card_name']);
     $card_quote = mysqli_real_escape_string($conn, $_POST['card_quote']);
     $card_description = mysqli_real_escape_string($conn, $_POST['card_description']);
- 
+    $card_number = mysqli_real_escape_string($conn, $_POST['card_number']);
 
 
     //upload file variables
